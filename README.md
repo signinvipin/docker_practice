@@ -1,1 +1,1 @@
-This repository contains files about docker usage and practice.
+This repository is for learning docker.
