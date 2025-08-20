@@ -1,37 +1,38 @@
+# deployment of Docker image to kubernetes
+
+#### Expanded Form ####
 appVersion: app/v1
 kind: deployment
 metadata:
   name: nginx-deployment
+spec: 
+  selector: 
+    matchLabel: 
+      app: nginx
+  replicas: 3
+  template: 
+    metadata: 
+      labels: 
+        app: nginx
+    spec: 
+      containers: 
+        - name: nginx
+          image: nginx:1.14.2
+          ports: 
+            - containerPort: 80
 
-spec.selector.matchLabels.app: nginx
-spec.replicas: 3
-spec.template.metadata.labels.app: nginx
-spec.template.spec.containers:
-  - name: nginx
-    image: nginx:1.14.2
-    ports:
-      - containerPorts: 80
-               
-#### Expanded Form ####
+
+## Concise form for learning format ##
 #appVersion: app/v1
 #kind: deployment
 #metadata:
 #  name: nginx-deployment
-#spec: 
-#  selector: 
-#    matchLabel: 
-#      app: nginx
 
-#  replicas: 3
-
-#  template: 
-#    metadata: 
-#      labels: 
-#        app: nginx
-    
-#    spec: 
-#      containers: 
-#        - name: nginx
-#          image: nginx:1.14.2
-#          ports: 
-#            - containerPort: 80
+#spec.selector.matchLabels.app: nginx
+#spec.replicas: 3
+#spec.template.metadata.labels.app: nginx
+#spec.template.spec.containers:
+#  - name: nginx
+#    image: nginx:1.14.2
+#    ports:
+#      - containerPorts: 80
