@@ -7,7 +7,7 @@ metadata:
   name: nginx-deployment
 spec: 
   selector: 
-    matchLabel: 
+    matchLabels: 
       app: nginx
   replicas: 3
   template: 
@@ -22,7 +22,7 @@ spec:
             - containerPort: 80
 
 
-## Concise form for learning format ##
+## Concise format for learning ##
 #appVersion: app/v1
 #kind: deployment
 #metadata:
