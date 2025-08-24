@@ -1,0 +1,113 @@
+Docker Commands:
+---------
+
+Check docker presence
+$ docker --version
+
+check docker images present in repository locally
+$ docker images
+
+Test proper installation by running hello-world image
+$ docker run hello-world
+
+Starts the new image container.
+$ docker run -it alpine:latest 
+# The container starts, executes its default command (default command 
+# usually finishes immediately), shows interactive terminal, 
+# and then container stops when we exit from interactive terminal.
+
+Run container in background. So it keeps running, even when its doing nothing:
+$ docker run -d alpine tail -f /dev/null 
+# -d: Detached mode (runs in the background)
+# tail -f /dev/null: Keeps the container running doing nothing
+
+View running docker images (do it in different terminal)
+$ docker ps
+
+Views docker images' run history
+$ docker ps -a
+
+Removing previously ran but exited container
+$ docker rm <container-id>
+
+Start interactive terminal with container running in background 
+To do it we start a new interactive shell session inside the running container as
+$ docker exec -it <container-id or container-name> /bin/sh
+# This opens a new shell inside the running container without stopping it.
+$ exit
+# When we exit this shell, the container keeps running.
+
+sometimes we,
+[
+Attach to the container's main process (less common for shell):
+Used only in case, when we want to interact with main process started with 'docker run'
+$ docker attach <container-id or container-name>
+]
+
+Start the old container (if started with persitent cmd it will not exit)
+$ docker ps -a
+$ docker start <container-id or name>
+
+Stop the running container
+$ docker stop <container-id or name>
+
+
+
+Creating docker image manually.
+------------------------------
+Steps:
+> pulled apline latest using 
+  $ docker pull alpine:latest
+
+> docker images
+
+> Run container alpine in background and
+  Expose container port 8080 for global access
+  $ docker run -d -p 8080:8080 alpine tail -f /dev/null
+  # -p 8080:8080 maps port 8080 on our host to port 8080 inside the container.
+  
+> Start interactive terminal from running background container
+  $ docker exec -it <container-id or name> /bin/sh
+
+> Search version of openjdk available with alpine as
+  $ apk search openjdk
+
+> Install java and setup java on alpine as
+  $ apk add openjdk17-jre
+
+> check java
+  $ java -version
+
+> create directory '/app' and pull apps' src folder and pom.xml from repo 
+  Create directory in alpine container:
+  $ mkdir /app
+  Open a new terminal on host ec2 server then copy file from host server to docker container:
+  $ docker cp /path/to/your/application.jar <my-alpine-container-name or id>:/app/
+
+> run the jar project package using java
+  $ java -jar project_package.jar
+
+> test the setup by visiting site
+  http://<ec2-public-ip4>:8080/
+
+[  # if getting whitepage error, configure endpoint '/' as '/main' instead of '/test' or modify your          PlaceHolderForTest.java file as 
+    
+    package com.levo.dockerexample;
+
+    public class PlaceHolderForTest {
+        public static void main(String[] args) {
+            System.out.println("hello");
+        }
+    }
+
+  # Or, you can ignore it is a Normal response.
+]
+
+> If all good, Commit the container to a new image as
+  $ docker commit <container-id> myalpine-java
+
+# When you exit an interactive shell in a container, 
+# that container stops and any change made will be lost 
+# unless committed to a new image or scripted in a Dockerfile.
+
+Create the dockerfile with the steps used to create image manually.
