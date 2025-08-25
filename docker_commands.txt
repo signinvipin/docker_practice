@@ -28,11 +28,11 @@ Views docker images' run history
 $ docker ps -a
 
 Removing previously ran but exited container
-$ docker rm <container-id>
+$ docker rm <container-id or name>
 
 Start interactive terminal with container running in background 
 To do it we start a new interactive shell session inside the running container as
-$ docker exec -it <container-id or container-name> /bin/sh
+$ docker exec -it <container-id or name> /bin/sh
 # This opens a new shell inside the running container without stopping it.
 $ exit
 # When we exit this shell, the container keeps running.
@@ -69,11 +69,19 @@ Steps:
 > Start interactive terminal from running background container
   $ docker exec -it <container-id or name> /bin/sh
 
-> Search version of openjdk available with alpine as
+> Search version of openjdk available with alpine and
+  Install java and setup java on alpine as
   $ apk search openjdk
-
-> Install java and setup java on alpine as
   $ apk add openjdk17-jre
+
+> If installing from compressed package, extract it in '/opt/'. Then,
+  Set environment variables by creating a script 'java.sh' in /etc/profile.d
+  $ vi /etc/profile.d/java.sh
+  add, 
+  export JAVA_HOME=/opt/jdk-<version>
+  export PATH=$PATH:$JAVA_HOME/bin
+  then,
+  source /etc/profile.d/java.sh
 
 > check java
   $ java -version
