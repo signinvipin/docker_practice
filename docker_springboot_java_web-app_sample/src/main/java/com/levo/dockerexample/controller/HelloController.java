@@ -1,18 +1,17 @@
 package com.levo.dockerexample.controller;
 
 import java.util.Date;
-
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("docker-java-app")
 public class HelloController {
-	
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String test() {
-		return "docker-java-app is up and running: " + new Date();
-	}
 
+    @GetMapping("/")
+    public String test() {
+        return "hello! This is a test app." + \n "Congratulations on setting up docker image successfully."\n +
+            "/\\_/\\  \n" \n +
+            "( o.o ) \n" \n +
+            " > ^ < ";
+    }
 }

@@ -98,24 +98,14 @@ Steps:
 > test the setup by visiting site
   http://<ec2-public-ip4>:8080/
 
-[  # if getting whitepage error, configure endpoint '/' as '/main' instead of '/test' or modify your          PlaceHolderForTest.java file as 
-    
-    package com.levo.dockerexample;
+> If all good, 
+  Commit the container to as new image and 
+  set the default CMD to start when container starts
+  $ docker commit <container-id> my-java-app:latest --change='CMD ["java", "-jar", "/app/project_package.jar"]'
 
-    public class PlaceHolderForTest {
-        public static void main(String[] args) {
-            System.out.println("hello");
-        }
-    }
-
-  # Or, you can ignore it is a Normal response.
-]
-
-> If all good, Commit the container to a new image as
-  $ docker commit <container-id> myalpine-java
 
 # When you exit an interactive shell in a container, 
 # that container stops and any change made will be lost 
 # unless committed to a new image or scripted in a Dockerfile.
 
-Create the dockerfile with the steps used to create image manually.
+>>>Create the dockerfile to create image
