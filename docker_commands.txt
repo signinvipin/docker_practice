@@ -108,4 +108,36 @@ Steps:
 # that container stops and any change made will be lost 
 # unless committed to a new image or scripted in a Dockerfile.
 
->>>Create the dockerfile to create image
+
+Create docker image using dockerfile
+------------------------------------
+
+Naming of docker file is done two ways -
+> Dockerfile (default way)
+> filename.dockerfile (discrete naming)
+
+> After creating 'Dockerfile' place it in directory structure as
+projectfolder/src, pom.xml, Dockerfile
+Or,
+if projectfolder/src, pom.xml, docker/, target
+then,
+docker/Dockerfile, or
+docker/background/Dockerfile or docker/frontend/Dockerfile
+then we do
+$ cd projectfolder/
+build the image
+$ docker build .
+with image name and tag
+docker build -t <image-name>:<tag> .
+
+
+Or, as
+projectfolder/src, pom.xml, docker_example_app.dockerfile
+then,
+$ docker build -f docker_example_app.dockerfile .
+After the image is done we can assign thename and tag to it as
+$ docker image tag <existing-image> <new-name>:<new-tag>
+or,
+With image name and tag
+$ docker build -f docker_example_app.dockerfile -t <image-name>:<tag> .
+
