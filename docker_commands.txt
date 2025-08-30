@@ -130,7 +130,6 @@ $ docker build .
 with image name and tag
 docker build -t <image-name>:<tag> .
 
-
 Or, as
 projectfolder/src, pom.xml, docker_example_app.dockerfile
 then,
@@ -140,4 +139,11 @@ $ docker image tag <existing-image> <new-name>:<new-tag>
 or,
 With image name and tag
 $ docker build -f docker_example_app.dockerfile -t <image-name>:<tag> .
+
+Docker Compose
+--------------
+
+Docker compose is used for multi-container apps.
+It is name as 'docker-compose.yml' or 'compose.yml'.
+
 
