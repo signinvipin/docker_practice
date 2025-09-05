@@ -103,18 +103,18 @@ Steps:
   set the default CMD to start when container starts
   $ docker commit <container-id> my-java-app:latest --change='CMD ["java", "-jar", "/app/project_package.jar"]'
 
-
 # When you exit an interactive shell in a container, 
 # that container stops and any change made will be lost 
 # unless committed to a new image or scripted in a Dockerfile.
+
 
 
 Create docker image using dockerfile
 ------------------------------------
 
 Naming of docker file is done two ways -
-> Dockerfile (default way)
-> filename.dockerfile (discrete naming)
+1> Dockerfile (default way)
+2> filename.dockerfile (discrete naming)
 
 > After creating 'Dockerfile' place it in directory structure as
 projectfolder/src, pom.xml, Dockerfile
@@ -140,10 +140,5 @@ or,
 With image name and tag
 $ docker build -f docker_example_app.dockerfile -t <image-name>:<tag> .
 
-Docker Compose
---------------
-
-Docker compose is used for multi-container apps.
-It is name as 'docker-compose.yml' or 'compose.yml'.
-
+For more docker commands visit - https://docs.docker.com/reference/cli/docker/
 

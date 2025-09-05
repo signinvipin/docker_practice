@@ -1,0 +1,38 @@
+Docker Compose
+--------------
+
+Docker compose is used for defining and running multi-container applications.
+Manages - services, networks, volumes.
+It is name as 'docker-compose.yml' or 'compose.yml'.
+
+It works in all environments:
+- production, 
+- staging, 
+- development, 
+- testing, as well as 
+- CI workflows.
+
+Can manage takes like:
+1) Start, stop, and rebuild services
+2) View the status of running services
+3) Stream the log output of running services
+4) Run a one-off command on a service
+
+Commands:
+---------
+
+To start services in compose.yml file
+$ docker compose up
+
+To stop those services
+$ docker compose down
+
+To check logs for troubleshooting
+$ docker compose logs
+
+To list services and their statuses
+$ docker compose ps
+
+For more docker compose commands visit https://docs.docker.com/reference/cli/docker/compose/
+
+ 

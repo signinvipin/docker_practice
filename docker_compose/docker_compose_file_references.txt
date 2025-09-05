@@ -1,0 +1,45 @@
+
+
+For attributes under - 
+
+Version and name top-level elements ()
+https://docs.docker.com/reference/compose-file/version-and-name/
+
+Services (attributes)
+https://docs.docker.com/reference/compose-file/services/
+
+Networks - Define and manage networks in Docker Compose
+https://docs.docker.com/reference/compose-file/networks/
+
+Volumes - Define and manage volumes in Docker Compose
+https://docs.docker.com/reference/compose-file/volumes/
+
+Configs - Configs top-level element
+https://docs.docker.com/reference/compose-file/configs/
+
+Secrets - Flavor of configs for sensitive data
+https://docs.docker.com/reference/compose-file/secrets/
+
+Fragments - Use of Anchors and aliases to create re-usable blocks
+https://docs.docker.com/reference/compose-file/fragments/
+
+Extensions - prefix x- as a top-level element
+https://docs.docker.com/reference/compose-file/extension/
+
+Interpolation - Values set by variables as $VARIABLE or ${VARIABLE} and interpolated at runtime.
+https://docs.docker.com/reference/compose-file/interpolation/
+
+Merge - Merge Compose files as Mapping, Sequence, with EXCEPTIONS
+https://docs.docker.com/reference/compose-file/merge/#mapping
+
+Include - Use include to modularize Compose files 
+(to define the dependency on another Compose application, or sub-domain)
+https://docs.docker.com/reference/compose-file/include/
+
+Models - top-level models section declares AI models used by application
+https://docs.docker.com/reference/compose-file/models/
+
+Profiles - services top-level element supports a profiles attribute to define a list of named profiles for apps
+https://docs.docker.com/reference/compose-file/profiles/
+
+
