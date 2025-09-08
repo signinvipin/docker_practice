@@ -5,6 +5,11 @@ Docker compose is used for defining and running multi-container applications.
 Manages - services, networks, volumes.
 It is name as 'docker-compose.yml' or 'compose.yml'.
 
+It can be splitted into modular form, in the same folder like :
+1> infra.yml - containing the code related to setup infrastructure required
+2> compose.yml - containing code related to services and at top we import infra.yml 
+   under 'include:' key to import code from infra.yml
+
 It works in all environments:
 - production, 
 - staging, 
