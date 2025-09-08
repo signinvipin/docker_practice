@@ -36,3 +36,5 @@ spec:
 #    image: nginx:1.14.2
 #    ports:
 #      - containerPorts: 80
+
+# what kinds are there?
